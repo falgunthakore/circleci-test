@@ -1,0 +1,25 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/node:20.17
+    steps:
+      - checkout
+        # check out code from repo
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Build the app
+          command: npm run build
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+
+
+
+
+
